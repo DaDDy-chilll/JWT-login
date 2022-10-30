@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm start --prefix jwt-simple-login",
+    "start": "npm start --prefix jwt-simple-exe",
+    "watch":"npm run watch --prefix jwt-simple-exe",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.0",

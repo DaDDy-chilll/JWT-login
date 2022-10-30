@@ -1,0 +1,13 @@
+{
+  "name": "jwt-simple-exe",
+  "version": "1.0.0",
+  "description": "This app is jwt token simple login form",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch":"nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "DaDDY",
+  "license": "ISC"
+}
