@@ -1,0 +1,40 @@
+:root{
+    --success:lightgreen;
+    --fail:
+}
+html{
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 30%;
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    border-radius: 3vmax;
+    background-color:rgb(51, 252, 51);
+}
+
+.container h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    color: white;
+}
+
+
+.container img{
+    width: 30%;
+    border-radius: 100%;
+}
