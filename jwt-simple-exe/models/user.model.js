@@ -12,6 +12,10 @@ async function addNewUser(userData){
     };
 }
 
+function loginUser(email,pwd){
+    
+}
+
 module.exports = {
     findUser,
     addNewUser,
