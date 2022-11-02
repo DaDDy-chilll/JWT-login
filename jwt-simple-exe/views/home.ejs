@@ -1,7 +1,7 @@
 <%-include('sections/header.home.ejs') %>
-    <section class="container">
-        <h1>Welcome <%= name %></h1>
+    <section class="container " <%= authstylecontainer %> >
+        <h1><%= name %></h1>
         <img src="img/<%= auth %>.png" alt="<%= auth %>" />
-        <i>Now, you'r <%= content %> login.</i>
+        <i>Now, you'r <%= content %></i>
     </section>
 <%- include('sections/footer.home.ejs') %>

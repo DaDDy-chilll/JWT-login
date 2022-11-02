@@ -22,12 +22,20 @@ function getSignup(req,res){
 async function postSignup(req,res){
   try{  
         const {fname,lname,email,pwd} = req.body;
-        if(!fname || !lname || !email || !pwd){return res.status(400).json({
-            error:"You'r must fill all input"
+        if(!fname || !lname || !email || !pwd){ return res.render('home',{
+            auth:'fail',
+            authstyle:'style=background-color:var(--fail)',
+            authstylecontainer:'style=background-color:var(--container-fail)',
+            name:`${fname} ${lname=User},You need to fill all input!`,
+            content:"fail Sigup."
         })};
         const oldUser = await findUser(email);
-        if(oldUser){return res.status(400).json({
-            error:"You'r already have account!"
+        if(oldUser){   return res.render('home',{
+            auth:'fail',
+            authstyle:'style=background-color:var(--fail)',
+            authstylecontainer:'style=background-color:var(--container-fail)',
+            name:`${fname} ${lname}, You'r already have account. Please Login!`,
+            content:"fail Sigup."
         })};
         const userData = {
             first_name:fname,
@@ -44,10 +52,23 @@ async function postSignup(req,res){
             {expiresIn:'10m'}
         );
         newUser.token = token;
-        return res.status(201).json(newUser);
+        console.log(newUser);
+        return res.render('home',{
+            auth:'success',
+            authstyle:'style=background-color:var(--success)',
+            authstylecontainer:'style=background-color:var(--container-success)',
+            name:`Welcome ${fname} ${lname}`,
+            content:"successfully Sigup."
+        });
     }catch(err){
         console.log(err);
-        res.status(400).json(err);
+        return res.render('home',{
+            auth:'fail',
+            authstyle:'style=background-color:var(--fail)',
+            authstylecontainer:'style=background-color:var(--container-fail)',
+            name:`Welcome ${fname} ${lname}`,
+            content:"fail Sigup."
+        });
     }
     
 }

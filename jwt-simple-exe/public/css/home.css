@@ -1,6 +1,8 @@
 :root{
     --success:lightgreen;
-    --fail:
+    --container-success:rgb(35, 173, 0);
+    --fail:rgb(252, 63, 63);
+    --container-fail:rgb(156, 4, 4);
 }
 html{
     box-sizing: border-box;
@@ -29,8 +31,9 @@ body{
 
 .container h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: white;
+    text-align: center;
 }
 
 
