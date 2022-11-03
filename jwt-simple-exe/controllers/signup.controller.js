@@ -22,13 +22,17 @@ function getSignup(req,res){
 async function postSignup(req,res){
   try{  
         const {fname,lname,email,pwd} = req.body;
-        if(!fname || !lname || !email || !pwd){ return res.render('home',{
+        if(!fname || !lname || !email || !pwd){ 
+            res.status(400).json({
+                'error':'You need to fill All input'
+            })
+            return res.render('home',{
             auth:'fail',
             authstyle:'style=background-color:var(--fail)',
             authstylecontainer:'style=background-color:var(--container-fail)',
             name:`${fname} ${lname=User},You need to fill all input!`,
-            content:"fail Sigup."
-        })};
+            content:"fail Sigup."}
+        )};
         const oldUser = await findUser(email);
         if(oldUser){   return res.render('home',{
             auth:'fail',
@@ -53,7 +57,8 @@ async function postSignup(req,res){
         );
         newUser.token = token;
         console.log(newUser);
-        return res.render('home',{
+        res.setHeader('x-access-token',token);
+        res.render('home',{
             auth:'success',
             authstyle:'style=background-color:var(--success)',
             authstylecontainer:'style=background-color:var(--container-success)',
@@ -62,6 +67,9 @@ async function postSignup(req,res){
         });
     }catch(err){
         console.log(err);
+        res.status(400).json({
+            error:'Signup Fail. Please try again!'
+        })
         return res.render('home',{
             auth:'fail',
             authstyle:'style=background-color:var(--fail)',

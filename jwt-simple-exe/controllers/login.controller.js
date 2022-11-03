@@ -39,9 +39,10 @@ try{
                 process.env.TOKEN_KEY,
                 {expiresIn:'10m'}
             );
+            console.log(token);
             oldUser.token=token;
-            console.log(oldUser);
-            return res.render('home',{
+            res.setHeader('x-access-token',token);
+            res.render('home',{
                 auth:'success',
                 authstyle:'style=background-color:var(--success)',
                 authstylecontainer:'style=background-color:var(--container-success)',
